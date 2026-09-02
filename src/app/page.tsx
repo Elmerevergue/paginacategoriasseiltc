@@ -452,12 +452,46 @@ function ContactoRow({
 
 function Footer() {
   return (
-    <footer className="mt-auto border-t border-rule px-5 py-8 sm:px-8">
-      <div className="mx-auto flex max-w-6xl flex-col justify-between gap-2 sm:flex-row sm:items-center">
-        <span className="font-display font-semibold text-azul">SEILTC</span>
-        <span className="text-sm text-ink-soft">
-          54 años de trayectoria · Guatemala
-        </span>
+    <footer className="mt-auto border-t border-rule bg-tint">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-8">
+        <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
+          <div>
+            <Image
+              src="/logo-seiltc.jpg"
+              alt="Servicio Eléctrico Industrial LTC."
+              width={1600}
+              height={941}
+              className="h-11 w-auto"
+            />
+            <p className="mt-3 max-w-xs text-sm text-ink-soft">
+              54 años de trayectoria en venta, mantenimiento y reparación de
+              transformadores en Guatemala.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-1 text-sm sm:text-right">
+            <a
+              href="tel:+50225099747"
+              className="text-ink-soft transition-colors hover:text-cobre"
+            >
+              (502) 2509-9747
+            </a>
+            <a
+              href="mailto:ventas@seiltc.com.gt"
+              className="text-ink-soft transition-colors hover:text-cobre"
+            >
+              ventas@seiltc.com.gt
+            </a>
+            <span className="text-ink-soft">
+              4a calle 1-74 zona 13, Pamplona, Guatemala
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-2 border-t border-rule pt-6 text-xs text-ink-soft sm:flex-row sm:justify-between">
+          <span>© {new Date().getFullYear()} SEILTC. Todos los derechos reservados.</span>
+          <span>Desarrollado por Zolvex Digital Solutions</span>
+        </div>
       </div>
     </footer>
   );
