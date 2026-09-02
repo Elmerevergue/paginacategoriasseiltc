@@ -2,7 +2,13 @@
 
 import { useEffect, useRef } from "react";
 
-export default function HeroIntro({ children }: { children: React.ReactNode }) {
+export default function HeroIntro({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,5 +64,9 @@ export default function HeroIntro({ children }: { children: React.ReactNode }) {
     return () => ctx?.revert();
   }, []);
 
-  return <div ref={ref}>{children}</div>;
+  return (
+    <div ref={ref} className={className}>
+      {children}
+    </div>
+  );
 }

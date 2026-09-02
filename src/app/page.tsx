@@ -2,6 +2,7 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import HeroIntro from "@/components/HeroIntro";
+import HeroVideo from "@/components/HeroVideo";
 import ParallaxImage from "@/components/ParallaxImage";
 import { categorias, marcas, serviciosMantenimiento } from "@/lib/catalogo";
 import { fotos } from "@/lib/galeria";
@@ -25,8 +26,10 @@ export default function Home() {
 
 function Hero() {
   return (
-    <section className="border-b border-rule bg-azul px-5 pt-20 pb-16 text-paper sm:px-8 sm:pt-28 sm:pb-24">
-      <HeroIntro>
+    <section className="relative overflow-hidden border-b border-rule bg-azul px-5 pt-20 pb-16 text-paper sm:px-8 sm:pt-28 sm:pb-24">
+      <HeroVideo />
+      <div className="absolute inset-0 bg-azul/80" />
+      <HeroIntro className="relative">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_auto]">
           <h1
             data-hero="headline"
