@@ -1,6 +1,10 @@
+import Image from "next/image";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
+import HeroIntro from "@/components/HeroIntro";
+import ParallaxImage from "@/components/ParallaxImage";
 import { categorias, marcas, serviciosMantenimiento } from "@/lib/catalogo";
+import { fotos } from "@/lib/galeria";
 
 export default function Home() {
   return (
@@ -10,7 +14,9 @@ export default function Home() {
       <Nosotros />
       <Transformadores />
       <Mantenimiento />
+      <Galeria />
       <Proceso />
+      <BannerFinal />
       <Contacto />
       <Footer />
     </div>
@@ -20,37 +26,48 @@ export default function Home() {
 function Hero() {
   return (
     <section className="border-b border-rule bg-azul px-5 pt-20 pb-16 text-paper sm:px-8 sm:pt-28 sm:pb-24">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_auto]">
-        <h1 className="max-w-2xl font-display text-[clamp(2.25rem,9vw,4.5rem)] leading-[0.95] font-semibold tracking-tight">
-          Transformadores que no fallan cuando más los necesitás
-        </h1>
+      <HeroIntro>
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_auto]">
+          <h1
+            data-hero="headline"
+            className="max-w-2xl font-display text-[clamp(2.25rem,9vw,4.5rem)] leading-[0.95] font-semibold tracking-tight"
+          >
+            Soluciones eléctricas para tu empresa
+          </h1>
 
-        <div className="flex flex-col justify-between gap-8 lg:items-end lg:text-right">
-          <span className="font-mono-num text-7xl font-medium text-cobre lg:text-8xl">
-            54
-          </span>
-          <p className="max-w-xs text-white/70">
-            años reparando, fabricando y vendiendo transformadores en
-            Guatemala. Empresa 100% guatemalteca, con taller propio desde
-            1971.
-          </p>
+          <div className="flex flex-col justify-between gap-8 lg:items-end lg:text-right">
+            <span
+              data-hero="stat"
+              className="font-mono-num text-7xl font-medium text-cobre lg:text-8xl"
+            >
+              54
+            </span>
+            <p data-hero="copy" className="max-w-xs text-white/70">
+              años reparando, fabricando y vendiendo transformadores en
+              Guatemala. Empresa 100% guatemalteca, con taller propio desde
+              1971.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="mx-auto mt-14 flex max-w-6xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-        <a
-          href="#contacto"
-          className="bg-cobre px-7 py-3.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-cobre/90"
+        <div
+          data-hero="cta"
+          className="mx-auto mt-14 flex max-w-6xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
         >
-          Solicitar cotización
-        </a>
-        <a
-          href="#transformadores"
-          className="border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-white/10"
-        >
-          Ver catálogo
-        </a>
-      </div>
+          <a
+            href="#contacto"
+            className="bg-cobre px-7 py-3.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-cobre/90"
+          >
+            Solicitar cotización
+          </a>
+          <a
+            href="#transformadores"
+            className="border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-white/10"
+          >
+            Ver catálogo
+          </a>
+        </div>
+      </HeroIntro>
     </section>
   );
 }
@@ -108,6 +125,14 @@ function Nosotros() {
           </ul>
         </Reveal>
       </div>
+
+      <Reveal className="mx-auto mt-14 max-w-6xl">
+        <ParallaxImage
+          src="/fotos/lovable-instalacion.jpg"
+          alt="Instalaciones de SEILTC en zona 13, Guatemala"
+          className="aspect-[21/9]"
+        />
+      </Reveal>
     </section>
   );
 }
@@ -142,60 +167,78 @@ function Transformadores() {
 
         <div className="mt-14 divide-y divide-rule border-t border-rule">
           {categorias.map((c, i) => (
-            <Reveal key={c.codigo} delay={i * 0.05}>
-              <div className="grid gap-4 py-8 md:grid-cols-[220px_1fr]">
-                <h3 className="font-display text-2xl font-semibold text-azul">
-                  {c.nombre}
-                </h3>
-                <div>
-                  <p className="max-w-xl text-ink-soft">{c.resumen}</p>
-                  <div className="mt-4 grid gap-x-8 gap-y-1 text-sm sm:grid-cols-3">
-                    <p>
-                      <span className="text-ink-soft">Aplicación — </span>
-                      <span className="text-ink">{c.aplicacion}</span>
-                    </p>
-                    <p>
-                      <span className="text-ink-soft">Capacidades — </span>
-                      <span className="text-ink">{c.capacidades}</span>
-                    </p>
-                    <p>
-                      <span className="text-ink-soft">Instalación — </span>
-                      <span className="text-ink">{c.instalacion}</span>
-                    </p>
+            <div key={c.codigo}>
+              <Reveal delay={i * 0.05}>
+                <div className="grid gap-4 py-8 md:grid-cols-[220px_1fr]">
+                  <h3 className="font-display text-2xl font-semibold text-azul">
+                    {c.nombre}
+                  </h3>
+                  <div>
+                    <p className="max-w-xl text-ink-soft">{c.resumen}</p>
+                    <div className="mt-4 grid gap-x-8 gap-y-1 text-sm sm:grid-cols-3">
+                      <p>
+                        <span className="text-ink-soft">Aplicación — </span>
+                        <span className="text-ink">{c.aplicacion}</span>
+                      </p>
+                      <p>
+                        <span className="text-ink-soft">Capacidades — </span>
+                        <span className="text-ink">{c.capacidades}</span>
+                      </p>
+                      <p>
+                        <span className="text-ink-soft">Instalación — </span>
+                        <span className="text-ink">{c.instalacion}</span>
+                      </p>
+                    </div>
+                    {c.pendiente && (
+                      <p className="mt-4 border border-dashed border-cobre bg-cobre-soft px-3 py-2 text-sm text-ink">
+                        {c.pendiente}
+                      </p>
+                    )}
                   </div>
-                  {c.pendiente && (
-                    <p className="mt-4 border border-dashed border-cobre bg-cobre-soft px-3 py-2 text-sm text-ink">
-                      {c.pendiente}
-                    </p>
-                  )}
                 </div>
-              </div>
-            </Reveal>
+              </Reveal>
+
+              {i === 2 && (
+                <Reveal className="py-8">
+                  <ParallaxImage
+                    src="/fotos/lovable-subestacion.jpg"
+                    alt="Subestación tipo pedestal instalada en sitio"
+                    className="aspect-[16/7]"
+                  />
+                </Reveal>
+              )}
+            </div>
           ))}
         </div>
 
-        <Reveal>
-          <div className="mt-14 grid gap-10 border-t border-rule pt-10 lg:grid-cols-2">
-            <div>
-              <h3 className="font-display text-2xl font-semibold text-ink">
-                Marcas
-              </h3>
-              <p className="mt-2 text-ink-soft">
-                {marcas.map((m) => m.nombre).join(" · ")} con mayor
-                disponibilidad. Importamos otras marcas bajo requerimiento.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-display text-2xl font-semibold text-ink">
-                Diseño a la medida
-              </h3>
-              <p className="mt-2 text-ink-soft">
-                Requerimiento → propuesta técnica → fabricación o suministro →
-                pruebas → entrega con protocolo documentado.
-              </p>
-            </div>
-          </div>
-        </Reveal>
+        <div className="mt-14 grid gap-10 border-t border-rule pt-10 lg:grid-cols-[1fr_1fr_1.1fr]">
+          <Reveal>
+            <h3 className="font-display text-2xl font-semibold text-ink">
+              Marcas
+            </h3>
+            <p className="mt-2 text-ink-soft">
+              {marcas.map((m) => m.nombre).join(" · ")} con mayor
+              disponibilidad. Importamos otras marcas bajo requerimiento.
+            </p>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h3 className="font-display text-2xl font-semibold text-ink">
+              Diseño a la medida
+            </h3>
+            <p className="mt-2 text-ink-soft">
+              Requerimiento → propuesta técnica → fabricación o suministro →
+              pruebas → entrega con protocolo documentado.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <ParallaxImage
+              src="/fotos/lovable-laboratorio.jpg"
+              alt="Laboratorio de pruebas de SEILTC"
+              className="aspect-[4/3]"
+              strength={30}
+            />
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -227,6 +270,25 @@ function Mantenimiento() {
             ))}
           </div>
         </div>
+
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 sm:gap-4">
+          <Reveal>
+            <ParallaxImage
+              src="/fotos/lovable-equipo-trabajo.jpg"
+              alt="Equipo técnico de SEILTC en taller"
+              className="aspect-[4/3]"
+              strength={30}
+            />
+          </Reveal>
+          <Reveal delay={0.05}>
+            <ParallaxImage
+              src="/fotos/lovable-generadores-motores.jpg"
+              alt="Motores y generadores en reparación"
+              className="aspect-[4/3]"
+              strength={30}
+            />
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -247,6 +309,48 @@ function ServicioRow({
         <p className="mt-1 text-sm text-ink-soft">{servicio.desc}</p>
       </div>
     </div>
+  );
+}
+
+function Galeria() {
+  const aspectClass = {
+    cuadrado: "aspect-square",
+    vertical: "aspect-[3/4]",
+    horizontal: "aspect-[4/3]",
+  };
+
+  return (
+    <section className="border-b border-rule px-5 py-20 sm:px-8">
+      <div className="mx-auto max-w-6xl">
+        <Reveal>
+          <h2 className="max-w-xl font-display text-4xl leading-tight font-semibold text-ink sm:text-5xl">
+            Taller, maniobras y pruebas en sitio
+          </h2>
+        </Reveal>
+
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+          {fotos.map((foto, i) => (
+            <Reveal
+              key={foto.src}
+              delay={i * 0.05}
+              className={i === 0 ? "col-span-2" : ""}
+            >
+              <div
+                className={`relative overflow-hidden ${aspectClass[foto.aspecto]}`}
+              >
+                <Image
+                  src={foto.src}
+                  alt={foto.alt}
+                  fill
+                  sizes="(max-width: 640px) 50vw, 25vw"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -271,6 +375,19 @@ function Proceso() {
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function BannerFinal() {
+  return (
+    <Reveal className="border-b border-rule">
+      <ParallaxImage
+        src="/fotos/lovable-transformador-potencia.jpg"
+        alt="Transformador de potencia SEILTC"
+        className="h-[45vh] sm:h-[55vh]"
+        strength={80}
+      />
+    </Reveal>
   );
 }
 

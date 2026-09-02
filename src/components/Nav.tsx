@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const LINKS = [
@@ -15,8 +16,15 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-rule bg-paper">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#inicio" className="font-display text-lg font-bold text-azul">
-          SEILTC
+        <a href="#inicio" className="block">
+          <Image
+            src="/logo-seiltc.jpg"
+            alt="Servicio Eléctrico Industrial LTC."
+            width={1600}
+            height={941}
+            className="h-14 w-auto sm:h-16"
+            priority
+          />
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
