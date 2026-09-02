@@ -15,31 +15,31 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-rule bg-paper">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-8 sm:py-4">
         <a href="#inicio" className="block">
           <Image
             src="/logo-seiltc.jpg"
             alt="Servicio Eléctrico Industrial LTC."
             width={1600}
             height={941}
-            className="h-14 w-auto sm:h-16"
+            className="h-16 w-auto sm:h-20 lg:h-24"
             priority
           />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-9 md:flex">
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-ink-soft transition-colors hover:text-azul"
+              className="text-base font-semibold text-ink-soft transition-colors hover:text-azul"
             >
               {l.label}
             </a>
           ))}
           <a
             href="#contacto"
-            className="border-b-2 border-cobre text-sm font-semibold text-ink transition-colors hover:text-cobre"
+            className="bg-cobre px-6 py-2.5 text-base font-semibold text-paper transition-colors hover:bg-cobre/90"
           >
             Cotizar
           </a>
