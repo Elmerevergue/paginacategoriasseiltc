@@ -33,7 +33,7 @@ function Hero() {
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_auto]">
           <h1
             data-hero="headline"
-            className="max-w-2xl font-display text-[clamp(2.25rem,9vw,4.5rem)] leading-[0.95] font-semibold tracking-tight"
+            className="max-w-3xl font-display text-5xl leading-[0.98] font-semibold tracking-tight sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
           >
             Soluciones eléctricas para tu empresa
           </h1>
@@ -41,11 +41,11 @@ function Hero() {
           <div className="flex flex-col justify-between gap-8 lg:items-end lg:text-right">
             <span
               data-hero="stat"
-              className="font-mono-num text-7xl font-medium text-cobre lg:text-8xl"
+              className="font-mono-num text-8xl font-medium text-cobre lg:text-9xl"
             >
               58
             </span>
-            <p data-hero="copy" className="max-w-xs text-white/70">
+            <p data-hero="copy" className="max-w-sm text-lg text-white/70 lg:text-xl">
               años reparando, fabricando y vendiendo transformadores en
               Guatemala. Empresa 100% guatemalteca, con taller propio desde
               1968.
@@ -55,17 +55,17 @@ function Hero() {
 
         <div
           data-hero="cta"
-          className="mx-auto mt-14 flex max-w-6xl flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
+          className="mx-auto mt-14 flex max-w-6xl flex-col gap-4 sm:flex-row sm:flex-wrap"
         >
           <a
             href="#contacto"
-            className="bg-cobre px-7 py-3.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-cobre/90"
+            className="bg-cobre px-8 py-4 text-center text-base font-semibold text-paper transition-colors hover:bg-cobre/90"
           >
             Solicitar cotización
           </a>
           <a
             href="#transformadores"
-            className="border border-white/30 px-7 py-3.5 text-center text-sm font-semibold text-paper transition-colors hover:bg-white/10"
+            className="border border-white/30 px-8 py-4 text-center text-base font-semibold text-paper transition-colors hover:bg-white/10"
           >
             Ver catálogo
           </a>
