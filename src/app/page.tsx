@@ -40,12 +40,12 @@ function Hero() {
               data-hero="stat"
               className="font-mono-num text-7xl font-medium text-cobre lg:text-8xl"
             >
-              54
+              58
             </span>
             <p data-hero="copy" className="max-w-xs text-white/70">
               años reparando, fabricando y vendiendo transformadores en
               Guatemala. Empresa 100% guatemalteca, con taller propio desde
-              1971.
+              1968.
             </p>
           </div>
         </div>
@@ -81,7 +81,7 @@ function Nosotros() {
             No somos un comercializador más. Tenemos taller propio.
           </h2>
           <p className="mt-6 max-w-lg text-lg text-ink-soft">
-            Desde 1971 diseñamos, fabricamos, reparamos y comercializamos
+            Desde 1968 diseñamos, fabricamos, reparamos y comercializamos
             transformadores para el mercado guatemalteco e internacional,
             desde nuestras propias instalaciones de 1,600 m² en zona 13.
             Atendemos industria, comercio, vivienda, agroindustria y
@@ -91,7 +91,7 @@ function Nosotros() {
           <dl className="mt-10 flex gap-10 border-t border-rule pt-6">
             <div>
               <dt className="text-sm text-ink-soft">Fundada en</dt>
-              <dd className="font-mono-num text-3xl text-azul">1971</dd>
+              <dd className="font-mono-num text-3xl text-azul">1968</dd>
             </div>
             <div>
               <dt className="text-sm text-ink-soft">Instalaciones</dt>
@@ -328,12 +328,12 @@ function Galeria() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+        <div className="mt-10 columns-2 gap-3 sm:columns-3 sm:gap-4">
           {fotos.map((foto, i) => (
             <Reveal
               key={foto.src}
               delay={i * 0.05}
-              className={i === 0 ? "col-span-2" : ""}
+              className="mb-3 break-inside-avoid sm:mb-4"
             >
               <div
                 className={`relative overflow-hidden ${aspectClass[foto.aspecto]}`}
@@ -342,7 +342,7 @@ function Galeria() {
                   src={foto.src}
                   alt={foto.alt}
                   fill
-                  sizes="(max-width: 640px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -359,6 +359,15 @@ function Proceso() {
   return (
     <section className="border-b border-rule bg-tint px-5 py-16 sm:px-8">
       <div className="mx-auto max-w-6xl">
+        <Reveal className="mb-10">
+          <ParallaxImage
+            src="/fotos/pad-mounted-traslado.jpg"
+            alt="Traslado de transformador Pad Mounted embalado para instalación"
+            className="aspect-[21/9]"
+            strength={40}
+          />
+        </Reveal>
+
         <Reveal>
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-2">
             {pasos.map((p, i) => (
@@ -400,6 +409,12 @@ function Contacto() {
             Mandanos la placa de datos de tu equipo y te armamos una
             propuesta
           </h2>
+          <ParallaxImage
+            src="/fotos/pad-mounted-embalado.jpg"
+            alt="Transformador Pad Mounted embalado listo para entrega"
+            className="mt-8 aspect-[4/3] max-w-lg"
+            strength={30}
+          />
         </Reveal>
 
         <Reveal delay={0.1}>
@@ -464,7 +479,7 @@ function Footer() {
               className="h-11 w-auto"
             />
             <p className="mt-3 max-w-xs text-sm text-ink-soft">
-              54 años de trayectoria en venta, mantenimiento y reparación de
+              58 años de trayectoria en venta, mantenimiento y reparación de
               transformadores en Guatemala.
             </p>
           </div>

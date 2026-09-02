@@ -35,4 +35,34 @@ export const fotos: Foto[] = [
     alt: "Técnico conectando equipo de pruebas a una subestación en sitio",
     aspecto: "vertical",
   },
+  {
+    src: "/fotos/subestacion-instalacion.jpg",
+    alt: "Cuadrilla instalando un transformador de subestación tras la malla perimetral",
+    aspecto: "horizontal",
+  },
+  {
+    src: "/fotos/traslado-transformadores.jpg",
+    alt: "Tanques de aceite dieléctrico marcados y asegurados para traslado",
+    aspecto: "vertical",
+  },
+  {
+    src: "/fotos/mantenimiento-tablero-control.jpg",
+    alt: "Mantenimiento del tablero de control de un transformador de potencia en sitio",
+    aspecto: "vertical",
+  },
+  {
+    src: "/fotos/carga-equipo-planta.jpg",
+    alt: "Descarga de equipo eléctrico embalado en planta",
+    aspecto: "horizontal",
+  },
+  {
+    src: "/fotos/tablero-protecciones.jpg",
+    alt: "Tablero de protecciones con interruptores termomagnéticos instalados",
+    aspecto: "vertical",
+  },
+  {
+    src: "/fotos/subestacion-transformador-instalado.jpg",
+    alt: "Transformador de potencia instalado con ventiladores de enfriamiento",
+    aspecto: "horizontal",
+  },
 ];

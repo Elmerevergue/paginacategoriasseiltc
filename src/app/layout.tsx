@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "SEILTC — Transformadores eléctricos",
   description:
-    "Venta, mantenimiento y reparación de transformadores eléctricos. 54 años de trayectoria en Guatemala.",
+    "Venta, mantenimiento y reparación de transformadores eléctricos. 58 años de trayectoria en Guatemala.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
